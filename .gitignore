@@ -14,8 +14,10 @@ package-lock.json
 *.docx
 *.pdf
 
-# Scripts geradores extras
+# Scripts geradores extras e assets dos slides
 build_guia.js
+build_figuras_slides.py
+figuras_slides/
 
 # Arquivos temporarios do Office (aparecem quando o arquivo esta aberto)
 ~$*
