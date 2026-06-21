@@ -42,7 +42,7 @@ A diabetes é uma doença crônica de grande impacto em saúde pública. Este pr
 ## 🎯 Objetivos
 
 1. Aplicar todas as etapas do ciclo de Ciência de Dados sobre datasets reais.
-2. Gerar pelo menos 20 indicadores e 8 visualizações interpretáveis.
+2. Construir indicadores e visualizações que comuniquem os achados de forma clara.
 3. Comparar diferentes algoritmos de Machine Learning e avaliá-los com métricas adequadas.
 
 ## 🗂 Datasets
@@ -74,7 +74,7 @@ Foram construídos **25 KPIs**. Alguns destaques:
 
 ## 🧠 Conceitos de Ciência de Dados aplicados
 
-> Foram aplicados **9 de 9** conceitos da disciplina (o mínimo exigido era 8).
+> Foram aplicados os **9 conceitos** de Ciência de Dados trabalhados na disciplina.
 
 1. Coleta de Dados
 2. Limpeza, Pré-processamento e Integração
