@@ -201,7 +201,25 @@ plt.figure(figsize=(7,5))  # G6 satisfacao por regiao
 (df.groupby("regiao")["satisfeito"].mean()*100).sort_values().plot.bar(color=VERDE)
 plt.title("Clientes satisfeitos por região (%)"); plt.ylabel("% de clientes satisfeitos")
 plt.xlabel(""); plt.xticks(rotation=20); plt.tight_layout(); plt.savefig(f"{FIG}/g06_regiao.png"); plt.close()
-print("Graficos G1-G6 salvos.")
+
+# G13 - Motivos da insatisfacao: entre os pedidos mal avaliados, % com cada problema
+ins = df[df.satisfeito == 0]
+motivos = pd.Series({
+    "Entrega demorada": (ins.tempo_entrega_dias > df.tempo_entrega_dias.median()).mean() * 100,
+    "Frete acima da média": (ins.frete_total > df.frete_total.median()).mean() * 100,
+    "Preço acima da média": (ins.preco_total > df.preco_total.median()).mean() * 100,
+    "Compra parcelada": (ins.parcelado == 1).mean() * 100,
+    "Entrega atrasada": (ins.atrasou == 1).mean() * 100,
+}).sort_values()
+plt.figure(figsize=(8, 5))
+motivos.plot.barh(color=VERM)
+for i, v in enumerate(motivos.values):
+    plt.text(v + 1.5, i, f"{v:.0f}%", va="center", color="#1E293B", fontsize=11, fontweight="bold")
+plt.title("Características dos pedidos mal avaliados"); plt.xlabel("% dos clientes insatisfeitos"); plt.xlim(0, 100)
+plt.tight_layout(); plt.savefig(f"{FIG}/g13_motivos.png"); plt.close()
+print("Motivos da insatisfacao (% dos insatisfeitos):")
+print(motivos.round(1).sort_values(ascending=False).to_string())
+print("Graficos G1-G6 + motivos salvos.")
 
 # ==========================================================================
 # CONCEITO 7 e 9 - CLASSIFICACAO (prever satisfacao) + METRICAS
